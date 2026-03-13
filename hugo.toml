@@ -1,8 +1,50 @@
 baseURL       = 'https://example.org/'
-languageCode  = 'en-us'
-title         = 'La Cumbre – Holiday Home'
+title         = 'La Cumbre del Sol'
 theme         = 'lacumbre'
 
+defaultContentLanguage = 'nl'
+defaultContentLanguageInSubdir = true
+
+[languages]
+  [languages.nl]
+    languageCode  = 'nl'
+    languageName  = 'Nederlands'
+    weight        = 1
+    [languages.nl.params]
+      description = 'Luxe vakantievilla met privézwembad in de Cumbre del Sol, Benitachell, Costa Blanca.'
+      tagline     = 'Uw vakantievilla aan de Costa Blanca'
+      heroHeading = 'Welkom bij La Cumbre'
+      heroText    = 'Een prachtige villa met privézwembad op het luxueuze Cumbre del Sol resort.'
+      ctaBook     = 'Neem contact op'
+      ctaExplore  = 'Ontdek de villa'
+      navHome     = 'Home'
+      navVilla    = 'De Villa'
+      navArea     = 'Omgeving'
+      navFeatures = 'Voorzieningen'
+      navGallery  = "Foto's"
+      navContact  = 'Contact'
+      navPricing  = 'Prijzen'
+      footerText  = 'Generalitat Valenciana No Registro VT-453316-A'
+
+  [languages.en]
+    languageCode  = 'en'
+    languageName  = 'English'
+    weight        = 2
+    [languages.en.params]
+      description = 'Luxury holiday villa with private pool at Cumbre del Sol, Benitachell, Costa Blanca.'
+      tagline     = 'Your Costa Blanca holiday villa'
+      heroHeading = 'Welcome to La Cumbre'
+      heroText    = 'A beautiful villa with private swimming pool at the luxurious Cumbre del Sol resort.'
+      ctaBook     = 'Get in touch'
+      ctaExplore  = 'Explore the villa'
+      navHome     = 'Home'
+      navVilla    = 'The Villa'
+      navArea     = 'Surroundings'
+      navFeatures = 'Amenities'
+      navGallery  = 'Gallery'
+      navContact  = 'Contact'
+      navPricing  = 'Pricing'
+      footerText  = 'Generalitat Valenciana Registration VT-453316-A'
+
 [params]
-  description = 'A beautiful holiday home rental in the mountains.'
-  tagline     = 'Your mountain getaway'
+  heroImage = 'https://media.vrbo.com/lodging/22000000/22000000/21994700/21994655/292e4717.jpg'

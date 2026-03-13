@@ -1,0 +1,164 @@
+{{ define "main" }}
+
+<div class="gallery-page">
+  <header class="gallery-header">
+    <h1>{{ .Title }}</h1>
+    <p class="gallery-count">
+      {{ len .Site.Data.gallery }}
+      {{ if eq .Language.Lang "nl" }}foto's{{ else }}photos{{ end }}
+    </p>
+  </header>
+
+  <div class="gallery-grid">
+    {{ range $i, $img := .Site.Data.gallery }}
+    <button class="gallery-item" onclick="openLightbox({{ $i }})" aria-label="{{ if eq $.Language.Lang "nl" }}{{ $img.alt_nl }}{{ else }}{{ $img.alt_en }}{{ end }}">
+      <img
+        src="{{ $img.src }}"
+        alt="{{ if eq $.Language.Lang "nl" }}{{ $img.alt_nl }}{{ else }}{{ $img.alt_en }}{{ end }}"
+        loading="lazy"
+        decoding="async"
+      >
+    </button>
+    {{ end }}
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" onclick="navigateLightbox(-1, event)" aria-label="Previous">&lsaquo;</button>
+  <div class="lightbox-content">
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+    <p class="lightbox-counter" id="lightboxCounter"></p>
+  </div>
+  <button class="lightbox-next" onclick="navigateLightbox(1, event)" aria-label="Next">&rsaquo;</button>
+</div>
+
+<style>
+  .gallery-page { max-width: 72rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  .gallery-header { text-align: center; margin-bottom: 2rem; }
+  .gallery-header h1 { font-size: 2rem; color: var(--clr-accent); }
+  .gallery-count { color: var(--clr-muted); font-size: .95rem; margin-top: .25rem; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: .75rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background: var(--clr-border);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .gallery-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .3s;
+  }
+  .gallery-item:hover img { transform: scale(1.04); }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,.92);
+    align-items: center; justify-content: center;
+  }
+  .lightbox.open { display: flex; }
+
+  .lightbox-content {
+    max-width: 90vw; max-height: 85vh;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .lightbox-content img {
+    max-width: 90vw; max-height: 78vh;
+    object-fit: contain; border-radius: 4px;
+  }
+  .lightbox-caption {
+    color: rgba(255,255,255,.85); font-size: .95rem; margin-top: .75rem; text-align: center;
+  }
+  .lightbox-counter {
+    color: rgba(255,255,255,.5); font-size: .8rem; margin-top: .25rem;
+  }
+
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute; background: none; border: none;
+    color: rgba(255,255,255,.8); cursor: pointer; z-index: 1001;
+    transition: color .2s;
+  }
+  .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { color: #fff; }
+  .lightbox-close { top: 1rem; right: 1.5rem; font-size: 2.5rem; }
+  .lightbox-prev { left: 1rem; top: 50%; transform: translateY(-50%); font-size: 3rem; }
+  .lightbox-next { right: 1rem; top: 50%; transform: translateY(-50%); font-size: 3rem; }
+
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; }
+    .gallery-item { border-radius: 6px; }
+    .lightbox-prev { left: .25rem; font-size: 2rem; }
+    .lightbox-next { right: .25rem; font-size: 2rem; }
+  }
+</style>
+
+<script>
+(function() {
+  var images = [
+    {{ range $i, $img := .Site.Data.gallery }}
+    { src: {{ $img.src }}, alt: {{ if eq $.Language.Lang "nl" }}{{ $img.alt_nl }}{{ else }}{{ $img.alt_en }}{{ end }} }{{ if ne $i (sub (len $.Site.Data.gallery) 1) }},{{ end }}
+    {{ end }}
+  ];
+  var current = 0;
+  var lightbox = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  var lbCnt = document.getElementById('lightboxCounter');
+
+  window.openLightbox = function(i) {
+    current = i;
+    show();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeLightbox = function(e) {
+    if (e && e.target !== lightbox && !e.target.classList.contains('lightbox-close')) return;
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  window.navigateLightbox = function(dir, e) {
+    if (e) { e.stopPropagation(); }
+    current = (current + dir + images.length) % images.length;
+    show();
+  };
+
+  function show() {
+    lbImg.src = images[current].src;
+    lbImg.alt = images[current].alt;
+    lbCap.textContent = images[current].alt;
+    lbCnt.textContent = (current + 1) + ' / ' + images.length;
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+  });
+})();
+</script>
+
+{{ end }}

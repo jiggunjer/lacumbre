@@ -1,0 +1,6 @@
+<section id="{{ .Get "id" }}" class="content-section">
+  <h2>{{ .Get "title" }}</h2>
+  <div class="section-body">
+    {{ .Inner | markdownify }}
+  </div>
+</section>
