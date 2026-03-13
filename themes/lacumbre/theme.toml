@@ -1,0 +1,7 @@
+name        = "La Cumbre"
+license     = "MIT"
+description = "Minimal mobile-friendly theme for a holiday home rental."
+min_version = "0.120.0"
+
+[author]
+  name = "La Cumbre"

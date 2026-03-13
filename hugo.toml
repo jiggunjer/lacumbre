@@ -1,0 +1,8 @@
+baseURL       = 'https://example.org/'
+languageCode  = 'en-us'
+title         = 'La Cumbre – Holiday Home'
+theme         = 'lacumbre'
+
+[params]
+  description = 'A beautiful holiday home rental in the mountains.'
+  tagline     = 'Your mountain getaway'

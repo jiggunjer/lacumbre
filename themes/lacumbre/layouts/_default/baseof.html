@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--clr-bg:#fdfaf6;--clr-text:#2d2a26;--clr-accent:#6b8f71;--clr-accent-light:#e8f0e9;--max-w:52rem}
+    body{font-family:system-ui,-apple-system,sans-serif;line-height:1.6;color:var(--clr-text);background:var(--clr-bg)}
+    a{color:var(--clr-accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{background:var(--clr-accent);color:#fff;padding:1.5rem 1rem;text-align:center}
+    header h1{font-size:1.6rem;font-weight:700}
+    header p{font-size:1rem;opacity:.85;margin-top:.25rem}
+    main{max-width:var(--max-w);margin:0 auto;padding:2rem 1rem}
+    footer{text-align:center;padding:1.5rem 1rem;font-size:.85rem;color:#888}
+    @media(min-width:640px){header h1{font-size:2rem}main{padding:3rem 2rem}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ .Site.Title }}</h1>
+    {{ with .Site.Params.tagline }}<p>{{ . }}</p>{{ end }}
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    &copy; {{ now.Year }} {{ .Site.Title }}
+  </footer>
+</body>
+</html>
