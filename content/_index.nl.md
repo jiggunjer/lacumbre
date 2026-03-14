@@ -59,21 +59,7 @@ Gratis wifi. Samsung 43" Smart TV in de woonkamer (Netflix, 200+ kanalen). Samsu
 
 {{< /section >}}
 
-{{< section id="pricing" title="Praktische informatie" >}}
-
-### Inbegrepen in de prijs
-
-- Luxe linnenpakket (beddengoed, kussenslopen, handdoeken, theedoeken)
-- Wifi / internet
-- Gasverbruik
-- Gebruik wasmachine, droger, strijkplank, strijkijzer
-- Kinderstoel en campingbedje (op aanvraag)
-- 24-uurs service van uw meertalige villamanager
-
-### Niet inbegrepen
-
-- Eindschoonmaak
-- Elektriciteit (€ 0,40 per kWh, achteraf berekend)
+{{< section id="pricing" title="Beleid" >}}
 
 ### Check-in & check-out
 
@@ -81,6 +67,12 @@ Gratis wifi. Samsung 43" Smart TV in de woonkamer (Netflix, 200+ kanalen). Samsu
 - **Check-out** vóór 10:00 uur
 - Minimum leeftijd bij boeking: 24 jaar
 - In de zomermaanden (juni t/m september) en kerstvakantie is in-/uitchecken alleen mogelijk op zaterdag
+
+### Huisregels
+
+- Niet roken in de villa
+- Huisdieren zijn niet toegestaan
+- Geen evenementen of groepsfeesten
 
 {{< /section >}}
 

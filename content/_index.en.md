@@ -59,21 +59,7 @@ Free Wi-Fi. Samsung 43" Smart TV in the living room (Netflix, 200+ channels). Sa
 
 {{< /section >}}
 
-{{< section id="pricing" title="Practical information" >}}
-
-### Included in the price
-
-- Luxury linen package (bed linen, pillowcases, towels, tea towels)
-- Wi-Fi / internet
-- Gas consumption
-- Use of washing machine, dryer, ironing board, iron
-- High chair and cot (on request)
-- 24-hour service from your multilingual villa manager
-
-### Not included
-
-- Final cleaning
-- Electricity (€ 0.40 per kWh, charged afterwards)
+{{< section id="pricing" title="Policy" >}}
 
 ### Check-in & check-out
 
@@ -81,6 +67,12 @@ Free Wi-Fi. Samsung 43" Smart TV in the living room (Netflix, 200+ channels). Sa
 - **Check-out** before 10:00 AM
 - Minimum booking age: 24 years
 - During summer months (June – September) and Christmas holidays, check-in/out is only possible on Saturdays
+
+### House rules
+
+- No smoking inside the villa
+- Pets are not allowed
+- No events or group parties
 
 {{< /section >}}
 

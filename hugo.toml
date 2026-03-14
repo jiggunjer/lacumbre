@@ -9,7 +9,7 @@ defaultContentLanguageInSubdir = true
 [languages]
   [languages.nl]
     languageCode  = 'nl'
-    languageName  = 'Nederlands'
+    languageName  = 'NL'
     weight        = 1
     [languages.nl.params]
       description = 'Luxe vakantievilla met privézwembad in de Cumbre del Sol, Benitachell, Costa Blanca.'
@@ -24,12 +24,13 @@ defaultContentLanguageInSubdir = true
       navFeatures = 'Voorzieningen'
       navGallery  = "Foto's"
       navContact  = 'Contact'
-      navPricing  = 'Prijzen'
+      navPricing  = 'Beleid'
+      navAvailability = 'Prijzen & Beschikbaarheid'
       footerText  = 'Generalitat Valenciana No Registro VT-453316-A'
 
   [languages.en]
     languageCode  = 'en'
-    languageName  = 'English'
+    languageName  = 'EN'
     weight        = 2
     [languages.en.params]
       description = 'Luxury holiday villa with private pool at Cumbre del Sol, Benitachell, Costa Blanca.'
@@ -44,8 +45,95 @@ defaultContentLanguageInSubdir = true
       navFeatures = 'Amenities'
       navGallery  = 'Gallery'
       navContact  = 'Contact'
-      navPricing  = 'Pricing'
+      navPricing  = 'Policy'
+      navAvailability = 'Prices & Availability'
       footerText  = 'Generalitat Valenciana Registration VT-453316-A'
+
+  [languages.fr]
+    languageCode  = 'fr'
+    languageName  = 'FR'
+    weight        = 3
+    [languages.fr.params]
+      description = 'Villa de vacances de luxe avec piscine privée à Cumbre del Sol, Benitachell, Costa Blanca.'
+      tagline     = 'Votre villa sur la Costa Blanca'
+      heroHeading = 'Bienvenue à La Cumbre'
+      heroText    = 'Une magnifique villa avec piscine privée dans le luxueux complexe Cumbre del Sol.'
+      ctaBook     = 'Nous contacter'
+      ctaExplore  = 'Découvrir la villa'
+      navHome     = 'Accueil'
+      navVilla    = 'La Villa'
+      navArea     = 'Environs'
+      navFeatures = 'Équipements'
+      navGallery  = 'Galerie'
+      navContact  = 'Contact'
+      navPricing  = 'Politique'
+      navAvailability = 'Tarifs & Disponibilité'
+      footerText  = 'Generalitat Valenciana N° Registro VT-453316-A'
+
+  [languages.de]
+    languageCode  = 'de'
+    languageName  = 'DE'
+    weight        = 4
+    [languages.de.params]
+      description = 'Luxuriöse Ferienvilla mit privatem Pool in Cumbre del Sol, Benitachell, Costa Blanca.'
+      tagline     = 'Ihre Ferienvilla an der Costa Blanca'
+      heroHeading = 'Willkommen in La Cumbre'
+      heroText    = 'Eine wunderschöne Villa mit privatem Pool in der luxuriösen Anlage Cumbre del Sol.'
+      ctaBook     = 'Kontakt aufnehmen'
+      ctaExplore  = 'Villa entdecken'
+      navHome     = 'Startseite'
+      navVilla    = 'Die Villa'
+      navArea     = 'Umgebung'
+      navFeatures = 'Ausstattung'
+      navGallery  = 'Galerie'
+      navContact  = 'Kontakt'
+      navPricing  = 'Richtlinie'
+      navAvailability = 'Preise & Verfügbarkeit'
+      footerText  = 'Generalitat Valenciana Reg.-Nr. VT-453316-A'
+
+  [languages.es]
+    languageCode  = 'es'
+    languageName  = 'ES'
+    weight        = 5
+    [languages.es.params]
+      description = 'Villa de vacaciones de lujo con piscina privada en Cumbre del Sol, Benitachell, Costa Blanca.'
+      tagline     = 'Su villa en la Costa Blanca'
+      heroHeading = 'Bienvenido a La Cumbre'
+      heroText    = 'Una hermosa villa con piscina privada en la lujosa urbanización Cumbre del Sol.'
+      ctaBook     = 'Contactar'
+      ctaExplore  = 'Descubrir la villa'
+      navHome     = 'Inicio'
+      navVilla    = 'La Villa'
+      navArea     = 'Alrededores'
+      navFeatures = 'Equipamiento'
+      navGallery  = 'Galería'
+      navContact  = 'Contacto'
+      navPricing  = 'Política'
+      navAvailability = 'Precios y Disponibilidad'
+      footerText  = 'Generalitat Valenciana N.º Registro VT-453316-A'
+
+  [languages.zh]
+    languageCode  = 'zh-cn'
+    languageName  = 'ZH'
+    weight        = 6
+    [languages.zh.params]
+      description = '位于贝尼塔切尔 Cumbre del Sol 的豪华度假别墅，配有私人泳池。'
+      tagline     = '您的 Costa Blanca 度假别墅'
+      heroHeading = '欢迎来到 La Cumbre'
+      heroText    = '位于 Cumbre del Sol 高端社区的精美私人泳池别墅。'
+      ctaBook     = '联系我们'
+      ctaExplore  = '探索别墅'
+      navHome     = '首页'
+      navVilla    = '别墅'
+      navArea     = '周边'
+      navFeatures = '设施'
+      navGallery  = '图库'
+      navContact  = '联系'
+      navPricing  = '政策'
+      navAvailability = '价格与可订状态'
+      footerText  = 'Generalitat Valenciana 登记号 VT-453316-A'
 
 [params]
   heroImage = 'https://media.vrbo.com/lodging/22000000/22000000/21994700/21994655/292e4717.jpg'
+  pricesCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQgW2QgnB_z-uc-3e1HkbX_CLnuv0a5_71WGfeb9iXyHSG_avrPCsSYLjt0uu9KElkuzQt1PPOU6QZe/pub?gid=0&single=true&output=csv'
+  availabilityCSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTtkk_HbkEveOlhhSYnfH3y1fgMzaeNq6PQelNK3HYP4BWXf2yB3Oe_yxH8gzyDx9G7yLvJurJLUVcY/pub?gid=0&single=true&output=csv'

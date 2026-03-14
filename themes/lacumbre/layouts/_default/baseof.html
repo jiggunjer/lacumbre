@@ -154,11 +154,13 @@
         <a href="#pricing">{{ .Site.Params.navPricing }}</a>
         <a href="#contact">{{ .Site.Params.navContact }}</a>
         {{ end }}
+        {{ if not .IsHome }}
+        <a href="{{ .Site.Home.RelPermalink }}#villa">{{ .Site.Params.navVilla }}</a>
+        {{ end }}
         {{ $gallery := .Site.GetPage "/gallery" }}
         {{ with $gallery }}<a href="{{ .RelPermalink }}">{{ $.Site.Params.navGallery }}</a>{{ end }}
-        {{ if not .IsHome }}
-        <a href="{{ .Site.Home.RelPermalink }}#contact">{{ .Site.Params.navContact }}</a>
-        {{ end }}
+        {{ $avail := .Site.GetPage "/availability" }}
+        {{ with $avail }}<a href="{{ .RelPermalink }}">{{ $.Site.Params.navAvailability }}</a>{{ end }}
         <div class="lang-toggle">
           {{ range .Translations }}
             <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>

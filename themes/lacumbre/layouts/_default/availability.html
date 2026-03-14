@@ -1,0 +1,297 @@
+{{ define "main" }}
+<div class="avail-page">
+  <header class="avail-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  {{ if .Content }}
+  <section class="avail-section avail-copy">
+    {{ .Content }}
+  </section>
+  {{ end }}
+
+  <section class="avail-section" id="prices-section">
+    <h2 id="lbl-prices"></h2>
+    <p id="lbl-prices-disclaimer" class="prices-disclaimer"></p>
+    <div id="prices-loading" class="avail-loading"></div>
+    <div id="prices-table-wrap" class="table-responsive"></div>
+  </section>
+
+  <section class="avail-section" id="calendar-section">
+    <h2 id="lbl-calendar"></h2>
+    <div id="cal-loading" class="avail-loading"></div>
+    <div class="cal-nav">
+      <button id="cal-prev" class="cal-nav-btn" aria-label="Previous">&lsaquo;</button>
+      <span id="cal-range"></span>
+      <button id="cal-next" class="cal-nav-btn" aria-label="Next">&rsaquo;</button>
+    </div>
+    <div id="calendar-grid" class="calendar-grid"></div>
+    <div class="cal-legend">
+      <span class="legend-item"><span class="legend-dot avail"></span><span id="lbl-available"></span></span>
+      <span class="legend-item"><span class="legend-dot unavail"></span><span id="lbl-unavailable"></span></span>
+      <span class="legend-item"><span class="legend-dot nodata"></span><span id="lbl-nodata"></span></span>
+    </div>
+  </section>
+</div>
+
+<style>
+.avail-page { max-width: 72rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+.avail-header { text-align: center; margin-bottom: 2rem; }
+.avail-header h1 { font-size: 2rem; color: var(--clr-accent); }
+.avail-section { margin-bottom: 3rem; }
+.avail-section h2 { margin-bottom: 1rem; }
+.avail-loading { text-align: center; padding: 2rem; color: var(--clr-muted); }
+.avail-copy ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
+.avail-copy ul li { padding-left: 0; margin-bottom: .35rem; }
+.avail-copy ul li::before { content: none; }
+.prices-disclaimer {
+  margin: -.2rem 0 1rem;
+  color: var(--clr-muted);
+  font-size: .86rem;
+  font-style: italic;
+}
+
+.table-responsive { overflow-x: auto; }
+.table-responsive table { min-width: 400px; }
+.table-responsive th, .table-responsive td { white-space: nowrap; }
+
+/* Calendar navigation */
+.cal-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.25rem; }
+.cal-nav-btn {
+  background: var(--clr-accent-light); border: 1px solid var(--clr-border); border-radius: 6px;
+  width: 2.5rem; height: 2.5rem; font-size: 1.5rem; cursor: pointer; color: var(--clr-accent);
+  display: flex; align-items: center; justify-content: center; transition: all .2s;
+}
+.cal-nav-btn:hover { background: var(--clr-accent); color: #fff; }
+.cal-nav-btn:disabled { opacity: .3; cursor: default; }
+.cal-nav-btn:disabled:hover { background: var(--clr-accent-light); color: var(--clr-accent); }
+#cal-range { font-weight: 600; font-size: .95rem; }
+
+/* Calendar grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.cal-month { background: var(--clr-white); border: 1px solid var(--clr-border); border-radius: 8px; padding: .75rem; }
+.cal-month-title { font-family: var(--font-heading); font-weight: 600; font-size: .95rem; text-align: center; margin-bottom: .5rem; color: var(--clr-accent); text-transform: capitalize; }
+.cal-dow { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: .7rem; font-weight: 600; color: var(--clr-muted); margin-bottom: .25rem; }
+.cal-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 2px; }
+.cal-day {
+  font-size: .75rem; padding: 3px 0; border-radius: 4px; line-height: 1.4;
+}
+.cal-day.avail { background: #c8e6c9; color: #2e7d32; }
+.cal-day.unavail { background: #ffcdd2; color: #c62828; }
+.cal-day.nodata { background: transparent; color: var(--clr-muted); }
+.cal-day.empty { visibility: hidden; }
+
+/* Legend */
+.cal-legend { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; font-size: .85rem; }
+.legend-item { display: flex; align-items: center; gap: .35rem; }
+.legend-dot { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.legend-dot.avail { background: #c8e6c9; }
+.legend-dot.unavail { background: #ffcdd2; }
+.legend-dot.nodata { background: var(--clr-border); }
+
+@media (max-width: 768px) {
+  .calendar-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<script>
+(function() {
+  var LANG = {{ .Language.Lang }};
+  var PRICES_URL = {{ .Site.Params.pricesCSV }};
+  var AVAIL_URL = {{ .Site.Params.availabilityCSV }};
+  var MONTHS_PER_PAGE = 6;
+  var MAX_ROWS = 24;
+  var MAX_COLS = 5;
+
+  var i18n = {
+    nl: { prices: 'Prijzen per week', pricesDisclaimer: 'Deze prijzen zijn indicatief en vormen geen formele offerte.', calendar: 'Beschikbaarheidskalender', from: 'Van', to: 'Tot', price: 'Prijs / week', available: 'Beschikbaar', unavailable: 'Niet beschikbaar', nodata: 'Geen data', loading: 'Laden…', error: 'Fout bij laden van data.', days: ['ma','di','wo','do','vr','za','zo'] },
+    en: { prices: 'Weekly prices', pricesDisclaimer: 'Prices are indicative and do not constitute a formal quote.', calendar: 'Availability calendar', from: 'From', to: 'To', price: 'Price / week', available: 'Available', unavailable: 'Unavailable', nodata: 'No data', loading: 'Loading…', error: 'Error loading data.', days: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] },
+    fr: { prices: 'Tarifs à la semaine', pricesDisclaimer: 'Les prix sont indicatifs et ne constituent pas une offre formelle.', calendar: 'Calendrier de disponibilité', from: 'Du', to: 'Au', price: 'Prix / semaine', available: 'Disponible', unavailable: 'Indisponible', nodata: 'Pas de données', loading: 'Chargement…', error: 'Erreur de chargement.', days: ['lun','mar','mer','jeu','ven','sam','dim'] },
+    de: { prices: 'Preise pro Woche', pricesDisclaimer: 'Die Preise sind unverbindlich und stellen kein formelles Angebot dar.', calendar: 'Verfügbarkeitskalender', from: 'Von', to: 'Bis', price: 'Preis / Woche', available: 'Verfügbar', unavailable: 'Nicht verfügbar', nodata: 'Keine Daten', loading: 'Laden…', error: 'Fehler beim Laden.', days: ['Mo','Di','Mi','Do','Fr','Sa','So'] },
+    es: { prices: 'Precios por semana', pricesDisclaimer: 'Los precios son orientativos y no constituyen una oferta formal.', calendar: 'Calendario de disponibilidad', from: 'Desde', to: 'Hasta', price: 'Precio / semana', available: 'Disponible', unavailable: 'No disponible', nodata: 'Sin datos', loading: 'Cargando…', error: 'Error al cargar datos.', days: ['lun','mar','mié','jue','vie','sáb','dom'] },
+    zh: { prices: '每周价格', pricesDisclaimer: '价格仅供参考，不构成正式报价。', calendar: '可订日历', from: '开始', to: '结束', price: '每周价格', available: '可订', unavailable: '不可订', nodata: '无数据', loading: '加载中…', error: '加载数据时出错。', days: ['一','二','三','四','五','六','日'] }
+  };
+  var t = i18n[LANG] || i18n.en;
+
+  var localeMap = { nl: 'nl-NL', en: 'en-GB', fr: 'fr-FR', de: 'de-DE', es: 'es-ES', zh: 'zh-CN' };
+  var locale = localeMap[LANG] || 'en-GB';
+  var dateFmt = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', year: 'numeric' });
+  var monthFmt = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' });
+
+  document.getElementById('lbl-prices').textContent = t.prices;
+  document.getElementById('lbl-prices-disclaimer').textContent = t.pricesDisclaimer;
+  document.getElementById('lbl-calendar').textContent = t.calendar;
+  document.getElementById('lbl-available').textContent = t.available;
+  document.getElementById('lbl-unavailable').textContent = t.unavailable;
+  document.getElementById('lbl-nodata').textContent = t.nodata;
+  document.getElementById('prices-loading').textContent = t.loading;
+  document.getElementById('cal-loading').textContent = t.loading;
+
+  function parseCSV(text) {
+    var lines = text.trim().split('\n');
+    if (lines.length < 2) return [];
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var cols = lines[i].split(',');
+      if (cols.length > MAX_COLS) cols = cols.slice(0, MAX_COLS);
+      rows.push(cols);
+      if (rows.length >= MAX_ROWS) break;
+    }
+    return rows;
+  }
+
+  function parseDate(s) {
+    var p = s.trim().split('-');
+    return new Date(+p[0], +p[1] - 1, +p[2]);
+  }
+
+  /* --- PRICES TABLE --- */
+  fetch(PRICES_URL)
+    .then(function(r) { return r.text(); })
+    .then(function(csv) {
+      var rows = parseCSV(csv);
+      var html = '<table><thead><tr><th>' + t.from + '</th><th>' + t.to + '</th><th>' + t.price + '</th></tr></thead><tbody>';
+      rows.forEach(function(r) {
+        var from = dateFmt.format(parseDate(r[0]));
+        var to = dateFmt.format(parseDate(r[1]));
+        var price = '€ ' + parseInt(r[2], 10).toLocaleString(locale);
+        html += '<tr><td>' + from + '</td><td>' + to + '</td><td><strong>' + price + '</strong></td></tr>';
+      });
+      html += '</tbody></table>';
+      document.getElementById('prices-loading').style.display = 'none';
+      document.getElementById('prices-table-wrap').innerHTML = html;
+    })
+    .catch(function() {
+      document.getElementById('prices-loading').textContent = t.error;
+    });
+
+  /* --- AVAILABILITY CALENDAR --- */
+  var calPage = 0;
+  var availMap = {};
+  var calMonths = [];
+
+  function buildMonthList() {
+    var now = new Date();
+    calMonths = [];
+    for (var i = 0; i < 12; i++) {
+      calMonths.push(new Date(now.getFullYear(), now.getMonth() + i, 1));
+    }
+  }
+  buildMonthList();
+
+  function dateKey(y, m, d) { return y + '-' + String(m + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0'); }
+
+  function buildAvailMap(rows) {
+    availMap = {};
+    rows.forEach(function(r) {
+      var start = parseDate(r[0]);
+      var end = parseDate(r[1]);
+      var status = parseInt(r[2], 10);
+      var cur = new Date(start);
+      while (cur <= end) {
+        availMap[dateKey(cur.getFullYear(), cur.getMonth(), cur.getDate())] = status;
+        cur.setDate(cur.getDate() + 1);
+      }
+    });
+  }
+
+  function renderCalendar() {
+    var start = calPage * MONTHS_PER_PAGE;
+    var end = Math.min(start + MONTHS_PER_PAGE, calMonths.length);
+    var grid = document.getElementById('calendar-grid');
+    grid.innerHTML = '';
+
+    for (var mi = start; mi < end; mi++) {
+      var first = calMonths[mi];
+      var y = first.getFullYear();
+      var m = first.getMonth();
+      var daysInMonth = new Date(y, m + 1, 0).getDate();
+      var startDow = (first.getDay() + 6) % 7;
+
+      var div = document.createElement('div');
+      div.className = 'cal-month';
+
+      var title = document.createElement('div');
+      title.className = 'cal-month-title';
+      title.textContent = monthFmt.format(first);
+      div.appendChild(title);
+
+      var dow = document.createElement('div');
+      dow.className = 'cal-dow';
+      t.days.forEach(function(d) {
+        var sp = document.createElement('span');
+        sp.textContent = d;
+        dow.appendChild(sp);
+      });
+      div.appendChild(dow);
+
+      var days = document.createElement('div');
+      days.className = 'cal-days';
+
+      for (var e = 0; e < startDow; e++) {
+        var empty = document.createElement('span');
+        empty.className = 'cal-day empty';
+        days.appendChild(empty);
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var cell = document.createElement('span');
+        cell.className = 'cal-day';
+        cell.textContent = d;
+        var key = dateKey(y, m, d);
+        if (key in availMap) {
+          cell.classList.add(availMap[key] === 1 ? 'avail' : 'unavail');
+        } else {
+          cell.classList.add('nodata');
+        }
+        days.appendChild(cell);
+      }
+      div.appendChild(days);
+      grid.appendChild(div);
+    }
+
+    document.getElementById('cal-prev').disabled = calPage === 0;
+    document.getElementById('cal-next').disabled = end >= calMonths.length;
+
+    var rangeStart = monthFmt.format(calMonths[start]);
+    var rangeEnd = monthFmt.format(calMonths[end - 1]);
+    document.getElementById('cal-range').textContent = rangeStart + ' — ' + rangeEnd;
+  }
+
+  document.getElementById('cal-prev').addEventListener('click', function() {
+    if (calPage > 0) { calPage--; renderCalendar(); }
+  });
+  document.getElementById('cal-next').addEventListener('click', function() {
+    if ((calPage + 1) * MONTHS_PER_PAGE < calMonths.length) { calPage++; renderCalendar(); }
+  });
+
+  /* Touch swipe support */
+  (function() {
+    var grid = document.getElementById('calendar-grid');
+    var startX = 0;
+    grid.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    grid.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) < 50) return;
+      if (dx < 0 && (calPage + 1) * MONTHS_PER_PAGE < calMonths.length) { calPage++; renderCalendar(); }
+      if (dx > 0 && calPage > 0) { calPage--; renderCalendar(); }
+    }, { passive: true });
+  })();
+
+  fetch(AVAIL_URL)
+    .then(function(r) { return r.text(); })
+    .then(function(csv) {
+      var rows = parseCSV(csv);
+      buildAvailMap(rows);
+      document.getElementById('cal-loading').style.display = 'none';
+      renderCalendar();
+    })
+    .catch(function() {
+      document.getElementById('cal-loading').textContent = t.error;
+    });
+})();
+</script>
+{{ end }}
