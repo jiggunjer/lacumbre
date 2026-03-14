@@ -78,11 +78,25 @@
 .cal-dow { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: .7rem; font-weight: 600; color: var(--clr-muted); margin-bottom: .25rem; }
 .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 2px; }
 .cal-day {
+  position: relative;
   font-size: .75rem; padding: 3px 0; border-radius: 4px; line-height: 1.4;
 }
 .cal-day.avail { background: #c8e6c9; color: #2e7d32; }
 .cal-day.unavail { background: #ffcdd2; color: #c62828; }
 .cal-day.nodata { background: transparent; color: var(--clr-muted); }
+.cal-day.conflict {
+  background: transparent;
+  color: var(--clr-muted);
+  outline: 1px dashed #d97706;
+}
+.cal-day .warn {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  font-size: .62rem;
+  line-height: 1;
+  color: #d97706;
+}
 .cal-day.empty { visibility: hidden; }
 
 /* Legend */
@@ -108,12 +122,12 @@
   var MAX_COLS = 5;
 
   var i18n = {
-    nl: { prices: 'Prijzen per week', pricesDisclaimer: 'Deze prijzen zijn indicatief en vormen geen formele offerte.', calendar: 'Beschikbaarheidskalender', from: 'Van', to: 'Tot', price: 'Prijs / week', available: 'Beschikbaar', unavailable: 'Niet beschikbaar', nodata: 'Geen data', loading: 'Laden…', error: 'Fout bij laden van data.', days: ['ma','di','wo','do','vr','za','zo'] },
-    en: { prices: 'Weekly prices', pricesDisclaimer: 'Prices are indicative and do not constitute a formal quote.', calendar: 'Availability calendar', from: 'From', to: 'To', price: 'Price / week', available: 'Available', unavailable: 'Unavailable', nodata: 'No data', loading: 'Loading…', error: 'Error loading data.', days: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] },
-    fr: { prices: 'Tarifs à la semaine', pricesDisclaimer: 'Les prix sont indicatifs et ne constituent pas une offre formelle.', calendar: 'Calendrier de disponibilité', from: 'Du', to: 'Au', price: 'Prix / semaine', available: 'Disponible', unavailable: 'Indisponible', nodata: 'Pas de données', loading: 'Chargement…', error: 'Erreur de chargement.', days: ['lun','mar','mer','jeu','ven','sam','dim'] },
-    de: { prices: 'Preise pro Woche', pricesDisclaimer: 'Die Preise sind unverbindlich und stellen kein formelles Angebot dar.', calendar: 'Verfügbarkeitskalender', from: 'Von', to: 'Bis', price: 'Preis / Woche', available: 'Verfügbar', unavailable: 'Nicht verfügbar', nodata: 'Keine Daten', loading: 'Laden…', error: 'Fehler beim Laden.', days: ['Mo','Di','Mi','Do','Fr','Sa','So'] },
-    es: { prices: 'Precios por semana', pricesDisclaimer: 'Los precios son orientativos y no constituyen una oferta formal.', calendar: 'Calendario de disponibilidad', from: 'Desde', to: 'Hasta', price: 'Precio / semana', available: 'Disponible', unavailable: 'No disponible', nodata: 'Sin datos', loading: 'Cargando…', error: 'Error al cargar datos.', days: ['lun','mar','mié','jue','vie','sáb','dom'] },
-    zh: { prices: '每周价格', pricesDisclaimer: '价格仅供参考，不构成正式报价。', calendar: '可订日历', from: '开始', to: '结束', price: '每周价格', available: '可订', unavailable: '不可订', nodata: '无数据', loading: '加载中…', error: '加载数据时出错。', days: ['一','二','三','四','五','六','日'] }
+    nl: { prices: 'Prijzen per week', pricesDisclaimer: 'Deze prijzen zijn indicatief en vormen geen formele offerte.', calendar: 'Beschikbaarheidskalender', from: 'Van', to: 'Tot', price: 'Prijs / week', available: 'Beschikbaar', unavailable: 'Niet beschikbaar', nodata: 'Geen data', conflict: 'Tegenstrijdige beschikbaarheidsdata', loading: 'Laden…', error: 'Fout bij laden van data.', days: ['ma','di','wo','do','vr','za','zo'] },
+    en: { prices: 'Weekly prices', pricesDisclaimer: 'Prices are indicative and do not constitute a formal quote.', calendar: 'Availability calendar', from: 'From', to: 'To', price: 'Price / week', available: 'Available', unavailable: 'Unavailable', nodata: 'No data', conflict: 'Conflicting availability data', loading: 'Loading…', error: 'Error loading data.', days: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] },
+    fr: { prices: 'Tarifs à la semaine', pricesDisclaimer: 'Les prix sont indicatifs et ne constituent pas une offre formelle.', calendar: 'Calendrier de disponibilité', from: 'Du', to: 'Au', price: 'Prix / semaine', available: 'Disponible', unavailable: 'Indisponible', nodata: 'Pas de données', conflict: 'Données de disponibilité contradictoires', loading: 'Chargement…', error: 'Erreur de chargement.', days: ['lun','mar','mer','jeu','ven','sam','dim'] },
+    de: { prices: 'Preise pro Woche', pricesDisclaimer: 'Die Preise sind unverbindlich und stellen kein formelles Angebot dar.', calendar: 'Verfügbarkeitskalender', from: 'Von', to: 'Bis', price: 'Preis / Woche', available: 'Verfügbar', unavailable: 'Nicht verfügbar', nodata: 'Keine Daten', conflict: 'Widersprüchliche Verfügbarkeitsdaten', loading: 'Laden…', error: 'Fehler beim Laden.', days: ['Mo','Di','Mi','Do','Fr','Sa','So'] },
+    es: { prices: 'Precios por semana', pricesDisclaimer: 'Los precios son orientativos y no constituyen una oferta formal.', calendar: 'Calendario de disponibilidad', from: 'Desde', to: 'Hasta', price: 'Precio / semana', available: 'Disponible', unavailable: 'No disponible', nodata: 'Sin datos', conflict: 'Datos de disponibilidad en conflicto', loading: 'Cargando…', error: 'Error al cargar datos.', days: ['lun','mar','mié','jue','vie','sáb','dom'] },
+    zh: { prices: '每周价格', pricesDisclaimer: '价格仅供参考，不构成正式报价。', calendar: '可订日历', from: '开始', to: '结束', price: '每周价格', available: '可订', unavailable: '不可订', nodata: '无数据', conflict: '可订数据冲突', loading: '加载中…', error: '加载数据时出错。', days: ['一','二','三','四','五','六','日'] }
   };
   var t = i18n[LANG] || i18n.en;
 
@@ -131,7 +145,22 @@
   document.getElementById('prices-loading').textContent = t.loading;
   document.getElementById('cal-loading').textContent = t.loading;
 
-  function parseCSV(text) {
+  function parsePricesCSV(text) {
+    var lines = text.trim().split('\n');
+    if (lines.length < 2) return { headers: [], rows: [] };
+    var headers = lines[0].split(',');
+    if (headers.length > MAX_COLS) headers = headers.slice(0, MAX_COLS);
+    var rows = [];
+    for (var i = 1; i < lines.length; i++) {
+      var cols = lines[i].split(',');
+      if (cols.length > MAX_COLS) cols = cols.slice(0, MAX_COLS);
+      rows.push(cols);
+      if (rows.length >= MAX_ROWS) break;
+    }
+    return { headers: headers, rows: rows };
+  }
+
+  function parseAvailabilityCSV(text) {
     var lines = text.trim().split('\n');
     if (lines.length < 2) return [];
     var rows = [];
@@ -139,7 +168,6 @@
       var cols = lines[i].split(',');
       if (cols.length > MAX_COLS) cols = cols.slice(0, MAX_COLS);
       rows.push(cols);
-      if (rows.length >= MAX_ROWS) break;
     }
     return rows;
   }
@@ -149,17 +177,50 @@
     return new Date(+p[0], +p[1] - 1, +p[2]);
   }
 
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   /* --- PRICES TABLE --- */
   fetch(PRICES_URL)
     .then(function(r) { return r.text(); })
     .then(function(csv) {
-      var rows = parseCSV(csv);
-      var html = '<table><thead><tr><th>' + t.from + '</th><th>' + t.to + '</th><th>' + t.price + '</th></tr></thead><tbody>';
+      var parsed = parsePricesCSV(csv);
+      var headers = parsed.headers;
+      var rows = parsed.rows;
+
+      var displayHeaders = [];
+      if (headers.length > 0) displayHeaders.push(t.from);
+      if (headers.length > 1) displayHeaders.push(t.to);
+      if (headers.length > 2) displayHeaders.push(t.price);
+      for (var h = 3; h < headers.length; h++) {
+        displayHeaders.push(headers[h]);
+      }
+
+      var html = '<table><thead><tr>';
+      displayHeaders.forEach(function(h) {
+        html += '<th>' + escapeHtml(h) + '</th>';
+      });
+      html += '</tr></thead><tbody>';
+
       rows.forEach(function(r) {
-        var from = dateFmt.format(parseDate(r[0]));
-        var to = dateFmt.format(parseDate(r[1]));
-        var price = '€ ' + parseInt(r[2], 10).toLocaleString(locale);
-        html += '<tr><td>' + from + '</td><td>' + to + '</td><td><strong>' + price + '</strong></td></tr>';
+        html += '<tr>';
+        if (r.length > 0) html += '<td>' + escapeHtml(dateFmt.format(parseDate(r[0]))) + '</td>';
+        if (r.length > 1) html += '<td>' + escapeHtml(dateFmt.format(parseDate(r[1]))) + '</td>';
+        if (r.length > 2) {
+          var raw = parseInt(r[2], 10);
+          var price = Number.isFinite(raw) ? ('€ ' + raw.toLocaleString(locale)) : r[2];
+          html += '<td><strong>' + escapeHtml(price) + '</strong></td>';
+        }
+        for (var c = 3; c < r.length; c++) {
+          html += '<td>' + escapeHtml(r[c]) + '</td>';
+        }
+        html += '</tr>';
       });
       html += '</tbody></table>';
       document.getElementById('prices-loading').style.display = 'none';
@@ -193,7 +254,13 @@
       var status = parseInt(r[2], 10);
       var cur = new Date(start);
       while (cur <= end) {
-        availMap[dateKey(cur.getFullYear(), cur.getMonth(), cur.getDate())] = status;
+        var key = dateKey(cur.getFullYear(), cur.getMonth(), cur.getDate());
+        var prev = availMap[key];
+        if (!prev) {
+          availMap[key] = { status: status, conflict: false };
+        } else if (prev.status !== status && prev.conflict === false) {
+          availMap[key] = { status: null, conflict: true };
+        }
         cur.setDate(cur.getDate() + 1);
       }
     });
@@ -243,7 +310,14 @@
         cell.textContent = d;
         var key = dateKey(y, m, d);
         if (key in availMap) {
-          cell.classList.add(availMap[key] === 1 ? 'avail' : 'unavail');
+          var meta = availMap[key];
+          if (meta.conflict) {
+            cell.classList.add('nodata', 'conflict');
+            cell.title = t.conflict;
+            cell.innerHTML = '<span class=\"day-num\">' + d + '</span><span class=\"warn\">⚠</span>';
+          } else {
+            cell.classList.add(meta.status === 1 ? 'avail' : 'unavail');
+          }
         } else {
           cell.classList.add('nodata');
         }
@@ -284,7 +358,7 @@
   fetch(AVAIL_URL)
     .then(function(r) { return r.text(); })
     .then(function(csv) {
-      var rows = parseCSV(csv);
+      var rows = parseAvailabilityCSV(csv);
       buildAvailMap(rows);
       document.getElementById('cal-loading').style.display = 'none';
       renderCalendar();
