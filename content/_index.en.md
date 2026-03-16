@@ -78,6 +78,14 @@ Free Wi-Fi. Samsung 43" Smart TV in the living room (Netflix, 200+ channels). Sa
 
 {{< section id="contact" title="Contact" >}}
 
-Get in touch for availability and rates. Our Dutch-speaking villa manager (also speaks English, German and Spanish) is at your service.
+If you would like to book an available period or have another question, please contact:
+
+**Ricardo van Lunenburg**
+
+- Email: `r.vanlunenburg123@gmail.com`
+- Mobile: `+31 6 469 78 492`
+- Mobile: `+34 611 197 410`
+
+Both numbers are also available via WhatsApp.
 
 {{< /section >}}

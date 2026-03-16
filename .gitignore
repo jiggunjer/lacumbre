@@ -8,3 +8,8 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.har
+oauth-proxy/.dev.vars
+oauth-proxy/.dev.vars.*
+oauth-proxy/.wrangler/
+static/cms-media-local/*
+!static/cms-media-local/.gitkeep

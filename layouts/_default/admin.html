@@ -1,0 +1,106 @@
+{{- $debugRaw := lower (getenv "HUGO_LACUMBRE_CMS_DEBUG") -}}
+{{- $isDebug := or (eq $debugRaw "1") (eq $debugRaw "true") (eq $debugRaw "yes") (eq $debugRaw "on") -}}
+{{- $localBranch := getenv "HUGO_LACUMBRE_CMS_LOCAL_BRANCH" | default "cms-local-test" -}}
+{{- $localMediaFolder := getenv "HUGO_LACUMBRE_CMS_LOCAL_MEDIA_FOLDER" | default "/static/cms-media-local" -}}
+{{- $localPublicFolder := getenv "HUGO_LACUMBRE_CMS_LOCAL_PUBLIC_FOLDER" | default "/cms-media-local" -}}
+{{- $localConfig := dict
+  "load_config_file" false
+  "backend" (dict
+    "name" "github"
+    "repo" "jiggunjer/lacumbre"
+    "branch" $localBranch
+  )
+  "media_folder" $localMediaFolder
+  "public_folder" $localPublicFolder
+  "collections" (slice
+    (dict
+      "name" "gallery"
+      "label" "Gallery"
+      "files" (slice
+        (dict
+          "name" "gallery_data"
+          "label" "Gallery Images"
+          "file" "data/gallery.json"
+          "format" "json"
+          "fields" (slice
+            (dict
+              "label" "Images"
+              "name" "images"
+              "widget" "list"
+              "summary" "{{fields.order}} - {{fields.alt_en}}"
+              "hint" "Local debug mode uses manual order values and writes uploads to the local media folder."
+              "fields" (slice
+                (dict
+                  "label" "Asset"
+                  "name" "src"
+                  "widget" "image"
+                  "required" true
+                  "choose_url" false
+                )
+                (dict
+                  "label" "Alt text (English)"
+                  "name" "alt_en"
+                  "widget" "string"
+                  "required" true
+                )
+                (dict
+                  "label" "Alt text (Dutch)"
+                  "name" "alt_nl"
+                  "widget" "string"
+                  "required" true
+                )
+                (dict
+                  "label" "Sort order"
+                  "name" "order"
+                  "widget" "number"
+                  "value_type" "int"
+                  "min" 1
+                  "required" true
+                )
+                (dict
+                  "label" "Featured"
+                  "name" "featured"
+                  "widget" "boolean"
+                  "required" false
+                  "default" false
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+-}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>La Cumbre Gallery CMS</title>
+  </head>
+  <body>
+    {{ if $isDebug }}
+    <script>
+      window.LACUMBRE_CMS_LOCAL_CONFIG = {{ $localConfig | jsonify | safeJS }};
+    </script>
+    {{ end }}
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <script>
+      (function() {
+        if ({{ $isDebug }}) {
+          CMS.init({
+            config: window.LACUMBRE_CMS_LOCAL_CONFIG,
+          });
+          return;
+        }
+
+        CMS.init();
+      })();
+    </script>
+  </body>
+</html>

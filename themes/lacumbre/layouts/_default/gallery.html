@@ -1,16 +1,18 @@
 {{ define "main" }}
+{{ $galleryImages := sort .Site.Data.gallery.images "order" }}
+{{ $galleryLen := len $galleryImages }}
 
 <div class="gallery-page">
   <header class="gallery-header">
     <h1>{{ .Title }}</h1>
     <p class="gallery-count">
-      {{ len .Site.Data.gallery }}
+      {{ $galleryLen }}
       {{ if eq .Language.Lang "nl" }}foto's{{ else }}photos{{ end }}
     </p>
   </header>
 
   <div class="gallery-grid">
-    {{ range $i, $img := .Site.Data.gallery }}
+    {{ range $i, $img := $galleryImages }}
     <button class="gallery-item" onclick="openLightbox({{ $i }})" aria-label="{{ if eq $.Language.Lang "nl" }}{{ $img.alt_nl }}{{ else }}{{ $img.alt_en }}{{ end }}">
       <img
         src="{{ $img.src }}"
@@ -116,8 +118,8 @@
 <script>
 (function() {
   var images = [
-    {{ range $i, $img := .Site.Data.gallery }}
-    { src: {{ $img.src }}, alt: {{ if eq $.Language.Lang "nl" }}{{ $img.alt_nl }}{{ else }}{{ $img.alt_en }}{{ end }} }{{ if ne $i (sub (len $.Site.Data.gallery) 1) }},{{ end }}
+    {{ range $i, $img := $galleryImages }}
+    { src: {{ $img.src }}, alt: {{ if eq $.Language.Lang "nl" }}{{ $img.alt_nl }}{{ else }}{{ $img.alt_en }}{{ end }} }{{ if ne $i (sub $galleryLen 1) }},{{ end }}
     {{ end }}
   ];
   var current = 0;

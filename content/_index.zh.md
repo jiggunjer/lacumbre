@@ -78,6 +78,14 @@ description: "位于 Benitachell（Costa Blanca）的豪华私人泳池度假别
 
 {{< section id="contact" title="联系" >}}
 
-欢迎联系咨询档期与价格。我们的别墅管家会说荷兰语，同时也可使用英语、德语和西班牙语沟通。
+如果您希望预订可用日期或有其他问题，请联系：
+
+**Ricardo van Lunenburg**
+
+- 邮箱：`r.vanlunenburg123@gmail.com`
+- 手机：`+31 6 469 78 492`
+- 手机：`+34 611 197 410`
+
+两个号码也都支持 WhatsApp。
 
 {{< /section >}}

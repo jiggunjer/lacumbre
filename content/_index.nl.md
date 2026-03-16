@@ -78,6 +78,14 @@ Gratis wifi. Samsung 43" Smart TV in de woonkamer (Netflix, 200+ kanalen). Samsu
 
 {{< section id="contact" title="Contact" >}}
 
-Neem contact op voor beschikbaarheid en tarieven. Onze Nederlandstalige villamanager (spreekt ook Engels, Duits en Spaans) staat voor u klaar.
+Als u wilt reserveren voor een beschikbare periode of een andere vraag heeft, neem dan contact op met:
+
+**Ricardo van Lunenburg**
+
+- Mail: `r.vanlunenburg123@gmail.com`
+- Mobiel: `+31 6 469 78 492`
+- Mobiel: `+34 611 197 410`
+
+Beide nummers zijn ook via WhatsApp beschikbaar.
 
 {{< /section >}}

@@ -1,0 +1,1 @@
+jq -r '.log.entries[].request.url' latest.har | grep jpg >new_urls.txt

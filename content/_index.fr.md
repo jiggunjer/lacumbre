@@ -78,6 +78,14 @@ Wi-Fi gratuit. Samsung 43" Smart TV dans le salon (Netflix, 200+ chaînes). Sams
 
 {{< section id="contact" title="Contact" >}}
 
-Contactez-nous pour connaître les disponibilités et les tarifs. Notre gestionnaire de villa néerlandophone (parle aussi anglais, allemand et espagnol) est à votre service.
+Si vous souhaitez réserver une période disponible ou poser une autre question, veuillez contacter :
+
+**Ricardo van Lunenburg**
+
+- E-mail : `r.vanlunenburg123@gmail.com`
+- Mobile : `+31 6 469 78 492`
+- Mobile : `+34 611 197 410`
+
+Les deux numéros sont également disponibles sur WhatsApp.
 
 {{< /section >}}

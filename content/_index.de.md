@@ -78,6 +78,14 @@ Kostenloses WLAN. Samsung 43" Smart TV im Wohnzimmer (Netflix, 200+ Kanäle). Sa
 
 {{< section id="contact" title="Kontakt" >}}
 
-Kontaktieren Sie uns für Verfügbarkeit und Preise. Unser niederländischsprachiger Villamanager (spricht auch Englisch, Deutsch und Spanisch) steht Ihnen zur Verfügung.
+Wenn Sie einen verfügbaren Zeitraum buchen möchten oder eine andere Frage haben, kontaktieren Sie bitte:
+
+**Ricardo van Lunenburg**
+
+- E-Mail: `r.vanlunenburg123@gmail.com`
+- Mobil: `+31 6 469 78 492`
+- Mobil: `+34 611 197 410`
+
+Beide Nummern sind auch über WhatsApp erreichbar.
 
 {{< /section >}}

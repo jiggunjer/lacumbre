@@ -152,8 +152,12 @@
     if (headers.length > MAX_COLS) headers = headers.slice(0, MAX_COLS);
     var rows = [];
     for (var i = 1; i < lines.length; i++) {
+      var rawLine = lines[i].trim();
+      if (!rawLine) continue;
       var cols = lines[i].split(',');
       if (cols.length > MAX_COLS) cols = cols.slice(0, MAX_COLS);
+      var hasContent = cols.some(function(c) { return String(c).trim() !== ''; });
+      if (!hasContent) continue;
       rows.push(cols);
       if (rows.length >= MAX_ROWS) break;
     }
@@ -238,7 +242,7 @@
   function buildMonthList() {
     var now = new Date();
     calMonths = [];
-    for (var i = 0; i < 12; i++) {
+    for (var i = 0; i < 22; i++) {
       calMonths.push(new Date(now.getFullYear(), now.getMonth() + i, 1));
     }
   }
