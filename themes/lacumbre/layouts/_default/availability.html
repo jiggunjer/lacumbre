@@ -30,6 +30,7 @@
       <span class="legend-item"><span class="legend-dot avail"></span><span id="lbl-available"></span></span>
       <span class="legend-item"><span class="legend-dot unavail"></span><span id="lbl-unavailable"></span></span>
       <span class="legend-item"><span class="legend-dot nodata"></span><span id="lbl-nodata"></span></span>
+      <span class="legend-item"><span class="legend-dot conflict"></span><span id="lbl-conflict"></span></span>
     </div>
   </section>
 </div>
@@ -85,8 +86,8 @@
 .cal-day.unavail { background: #ffcdd2; color: #c62828; }
 .cal-day.nodata { background: transparent; color: var(--clr-muted); }
 .cal-day.conflict {
-  background: transparent;
-  color: var(--clr-muted);
+  background: #fef3c7;
+  color: #92400e;
   outline: 1px dashed #d97706;
 }
 .cal-day .warn {
@@ -106,6 +107,7 @@
 .legend-dot.avail { background: #c8e6c9; }
 .legend-dot.unavail { background: #ffcdd2; }
 .legend-dot.nodata { background: var(--clr-border); }
+.legend-dot.conflict { background: #fef3c7; }
 
 @media (max-width: 768px) {
   .calendar-grid { grid-template-columns: repeat(2, 1fr); }
@@ -142,6 +144,7 @@
   document.getElementById('lbl-available').textContent = t.available;
   document.getElementById('lbl-unavailable').textContent = t.unavailable;
   document.getElementById('lbl-nodata').textContent = t.nodata;
+  document.getElementById('lbl-conflict').textContent = t.conflict;
   document.getElementById('prices-loading').textContent = t.loading;
   document.getElementById('cal-loading').textContent = t.loading;
 
