@@ -180,5 +180,18 @@
     <p>&copy; {{ now.Year }} {{ .Site.Title }} &middot; {{ .Site.Params.footerText }}</p>
   </footer>
 
+  <script>
+    (function() {
+      var navLinks = document.getElementById('navLinks');
+      if (!navLinks) return;
+
+      navLinks.addEventListener('click', function(event) {
+        var clickedLink = event.target.closest('a[href^="#"]');
+        if (!clickedLink) return;
+        navLinks.classList.remove('open');
+      });
+    })();
+  </script>
+
 </body>
 </html>
