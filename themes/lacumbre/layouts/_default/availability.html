@@ -184,6 +184,32 @@
     return new Date(+p[0], +p[1] - 1, +p[2]);
   }
 
+  function sortAndCollapsePriceRows(rows) {
+    var sorted = rows.slice().sort(function(a, b) {
+      return parseDate(a[0]) - parseDate(b[0]);
+    });
+
+    var collapsed = [];
+    sorted.forEach(function(row) {
+      if (collapsed.length === 0) {
+        collapsed.push(row.slice());
+        return;
+      }
+
+      var previous = collapsed[collapsed.length - 1];
+      var prevPrice = (previous[2] || '').trim();
+      var rowPrice = (row[2] || '').trim();
+
+      if (prevPrice === rowPrice) {
+        previous[1] = row[1];
+      } else {
+        collapsed.push(row.slice());
+      }
+    });
+
+    return collapsed;
+  }
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, '&amp;')
@@ -199,7 +225,7 @@
     .then(function(csv) {
       var parsed = parsePricesCSV(csv);
       var headers = parsed.headers;
-      var rows = parsed.rows;
+      var rows = sortAndCollapsePriceRows(parsed.rows);
 
       var displayHeaders = [];
       if (headers.length > 0) displayHeaders.push(t.from);
