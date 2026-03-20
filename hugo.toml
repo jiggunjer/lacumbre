@@ -26,6 +26,8 @@ defaultContentLanguageInSubdir = true
       navContact  = 'Contact'
       navPricing  = 'Beleid'
       navAvailability = 'Prijzen & Beschikbaarheid'
+      navPrices   = 'Prijzen'
+      navCalendar = 'Kalender'
       footerText  = 'Generalitat Valenciana No Registro VT-453316-A'
 
   [languages.en]
@@ -47,6 +49,8 @@ defaultContentLanguageInSubdir = true
       navContact  = 'Contact'
       navPricing  = 'Policy'
       navAvailability = 'Prices & Availability'
+      navPrices   = 'Prices'
+      navCalendar = 'Calendar'
       footerText  = 'Generalitat Valenciana Registration VT-453316-A'
 
   [languages.fr]
@@ -68,6 +72,8 @@ defaultContentLanguageInSubdir = true
       navContact  = 'Contact'
       navPricing  = 'Politique'
       navAvailability = 'Tarifs & Disponibilité'
+      navPrices   = 'Tarifs'
+      navCalendar = 'Calendrier'
       footerText  = 'Generalitat Valenciana N° Registro VT-453316-A'
 
   [languages.de]
@@ -89,6 +95,8 @@ defaultContentLanguageInSubdir = true
       navContact  = 'Kontakt'
       navPricing  = 'Richtlinie'
       navAvailability = 'Preise & Verfügbarkeit'
+      navPrices   = 'Preise'
+      navCalendar = 'Kalender'
       footerText  = 'Generalitat Valenciana Reg.-Nr. VT-453316-A'
 
   [languages.es]
@@ -110,6 +118,8 @@ defaultContentLanguageInSubdir = true
       navContact  = 'Contacto'
       navPricing  = 'Política'
       navAvailability = 'Precios y Disponibilidad'
+      navPrices   = 'Precios'
+      navCalendar = 'Calendario'
       footerText  = 'Generalitat Valenciana N.º Registro VT-453316-A'
 
   [languages.zh]
@@ -131,6 +141,8 @@ defaultContentLanguageInSubdir = true
       navContact  = '联系'
       navPricing  = '政策'
       navAvailability = '价格与可订状态'
+      navPrices   = '价格'
+      navCalendar = '日历'
       footerText  = 'Generalitat Valenciana 登记号 VT-453316-A'
 
 [params]

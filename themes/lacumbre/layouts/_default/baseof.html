@@ -178,8 +178,12 @@
           <a href="#pricing">{{ .Site.Params.navPricing }}</a>
           <a href="#contact">{{ .Site.Params.navContact }}</a>
           {{ end }}
+          {{ if eq .Layout "availability" }}
+          <a href="#prices-section">{{ .Site.Params.navPrices }}</a>
+          <a href="#calendar-section">{{ .Site.Params.navCalendar }}</a>
+          {{ end }}
         </div>
-        <div class="nav-group nav-group-page{{ if .IsHome }} nav-group-page-separated{{ end }}">
+        <div class="nav-group nav-group-page{{ if or .IsHome (eq .Layout "availability") }} nav-group-page-separated{{ end }}">
           {{ if not .IsHome }}
           <a href="{{ .Site.Home.RelPermalink }}#villa">{{ .Site.Params.navVilla }}</a>
           {{ end }}
