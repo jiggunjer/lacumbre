@@ -92,6 +92,13 @@ The production Worker setup (Google OAuth, GitHub PAT, deploy URL, env vars) is 
 - `api/README.md`
 
 Use that recipe to configure `backend.base_url` in `static/admin/config.yml`.
+### OAuth and Worker setup
+
+The production auth proxy flow (Google OAuth, GitHub PAT, Worker deploy, and security checklist) is documented in:
+
+- `oauth-proxy/README.md`
+
+Use that recipe to configure `backend.base_url` in `static/admin/config.yml`.
 
 ### Local debug mode
 
