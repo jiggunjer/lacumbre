@@ -8,7 +8,7 @@ description: "位于 Benitachell（Costa Blanca）的豪华私人泳池度假别
 这是一栋位于 Benitachell 的 **Cumbre del Sol** 高端社区内、配有私人泳池的精美别墅。可欣赏地中海与山景，是放松度假的理想之选。
 
 - **2间卧室** · 2间浴室 · 可住4人 · 100平方米
-- **私人泳池**（8 × 4米）及户外淋浴
+- **私人泳池**（8 × 4米）及太阳能淋浴（冷热水）
 - **800平方米私家庭院**，带停车位
 - **所有卧室均配有空调**（制冷/制热）
 
@@ -18,11 +18,11 @@ description: "位于 Benitachell（Costa Blanca）的豪华私人泳池度假别
 
 ### 室内
 
-宽敞客厅，可通过落地门直达私人露台。厨房设备齐全，配有 Samsung 冰箱、燃气灶、Nespresso 咖啡机、电热水壶和微波烤箱。独立餐厅可容纳6人。客厅配有 Samsung 43" 智能电视（Netflix 与 200+ 频道）、Sony DVD/CD 音响（蓝牙）以及 Google Chromecast。
+宽敞客厅，可通过落地门直达私人露台。厨房设备齐全，配有 Samsung 冰箱、燃气灶、Nespresso 咖啡机、电热水壶和微波烤箱。独立餐厅可容纳6人。别墅内安装了壁炉和红外取暖板，可在您入住期间提供更舒适的取暖体验；较冷的夜晚也备有电热毯。
 
 ### 室外
 
-私人泳池（8 × 4米）和户外淋浴。两处大型露台配有躺椅、户外家具和遮阳伞。提供燃气烧烤炉与电烤盘。围栏花园内有储物间。
+私人泳池（8 × 4米）和太阳能淋浴（冷热水）。两处大型露台配有躺椅、户外家具和遮阳伞。提供燃气烧烤炉与电烤盘。围栏花园内有储物间。泳池和海滩活动方面也准备了充足的儿童娱乐用品。
 
 ### 卧室
 
@@ -32,7 +32,7 @@ description: "位于 Benitachell（Costa Blanca）的豪华私人泳池度假别
 
 ### 娱乐
 
-免费 Wi-Fi。客厅配有 Samsung 43" 智能电视（Netflix，200+ 频道）。主卧配有 Samsung 32" 电视、DVD 与 PlayStation 2。另有丰富的 DVD、CD、PlayStation 游戏、读物和桌游。
+免费 Wi-Fi 和 Google Chromecast。主卧配有 PlayStation 2，并提供 Sony DVD/CD（蓝牙）以及丰富的 DVD、CD、PlayStation 游戏、读物和桌游。
 
 {{< /section >}}
 

@@ -8,7 +8,7 @@ description: "Luxuriöse Ferienvilla mit privatem Pool in Benitachell, Costa Bla
 Eine wunderschöne Villa mit privatem Pool in der luxuriösen Anlage **Cumbre del Sol** in Benitachell, Costa Blanca. Mit Blick auf das Mittelmeer und die Berge ist dies der perfekte Ort zum Entspannen.
 
 - **2 Schlafzimmer** · 2 Badezimmer · 4 Personen · 100 m²
-- **Privater Pool** (8 × 4 Meter) mit Außendusche
+- **Privater Pool** (8 × 4 Meter) mit Solardusche (warm/kalt)
 - **Privater Garten** von 800 m² mit Parkplatz
 - **Klimaanlage** in allen Schlafzimmern (kalt/warm)
 
@@ -18,11 +18,11 @@ Eine wunderschöne Villa mit privatem Pool in der luxuriösen Anlage **Cumbre de
 
 ### Innenbereich
 
-Geräumiges Wohnzimmer mit Terrassentüren zu Ihrer privaten Terrasse. Gut ausgestattete Küche mit Samsung Kühlschrank, Gasherd, Nespresso, Wasserkocher und Kombi-Mikrowelle. Separates Esszimmer für 6 Personen. Samsung 43" Smart TV mit Netflix und über 200 Kanälen, Sony DVD/CD-Anlage mit Bluetooth, Google Chromecast.
+Geräumiges Wohnzimmer mit Terrassentüren zu Ihrer privaten Terrasse. Gut ausgestattete Küche mit Samsung Kühlschrank, Gasherd, Nespresso, Wasserkocher und Kombi-Mikrowelle. Separates Esszimmer für 6 Personen. In der Villa haben wir einen Kamin und Infrarotpaneele installiert, für optimalen Wärmekomfort während Ihres Aufenthalts. Außerdem sind für kältere Nächte elektrische Decken vorhanden.
 
 ### Außenbereich
 
-Privater Pool (8 × 4 m) mit Außendusche. Zwei große Terrassen mit Sonnenliegen, Gartenmöbeln und Sonnenschirmen. Gasgrill und elektrischer Tischgrill. Eingezäunter Garten mit Abstellraum.
+Privater Pool (8 × 4 m) mit Solardusche (warm/kalt). Zwei große Terrassen mit Sonnenliegen, Gartenmöbeln und Sonnenschirmen. Gasgrill und elektrischer Tischgrill. Eingezäunter Garten mit Abstellraum. Für Pool und Strand sind ausreichend Dinge zur Unterhaltung der Kinder vorhanden.
 
 ### Schlafzimmer
 
@@ -32,7 +32,7 @@ Privater Pool (8 × 4 m) mit Außendusche. Zwei große Terrassen mit Sonnenliege
 
 ### Unterhaltung
 
-Kostenloses WLAN. Samsung 43" Smart TV im Wohnzimmer (Netflix, 200+ Kanäle). Samsung 32" TV mit DVD und PlayStation 2 in der Master-Suite. Große Auswahl an DVDs, CDs, PlayStation-Spielen, Lesematerial und Brettspielen.
+Kostenloses WLAN und Google Chromecast. Sony DVD/CD-Anlage mit Bluetooth, PlayStation 2 in der Master-Suite sowie eine große Auswahl an DVDs, CDs, PlayStation-Spielen, Lesematerial und Brettspielen.
 
 {{< /section >}}
 

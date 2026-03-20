@@ -8,7 +8,7 @@ description: "Luxe vakantievilla met privézwembad in Benitachell, Costa Blanca"
 Een prachtige villa met privézwembad op het luxueuze **Cumbre del Sol** resort in Benitachell, Costa Blanca. Met uitzicht op de Middellandse Zee en de bergen is dit de perfecte plek om te ontspannen.
 
 - **2 slaapkamers** · 2 badkamers · 4 personen · 100 m²
-- **Privézwembad** van 8 × 4 meter met buitendouche
+- **Privézwembad** van 8 × 4 meter met solar douche (warm/koud)
 - **Privétuin** van 800 m² met parkeerplaats
 - **Airconditioning** in alle slaapkamers (koel/warm)
 
@@ -18,11 +18,11 @@ Een prachtige villa met privézwembad op het luxueuze **Cumbre del Sol** resort 
 
 ### Binnen
 
-Ruime woonkamer met openslaande deuren naar uw privéterras. Goed uitgeruste keuken met Samsung koelkast, gasfornuis, Nespresso, waterkoker en combi-magnetron. Aparte eetkamer voor 6 personen. Samsung 43" Smart TV met Netflix en meer dan 200 kanalen, Sony DVD/CD met bluetooth, Google Chromecast.
+Ruime woonkamer met openslaande deuren naar uw privéterras. Goed uitgeruste keuken met Samsung koelkast, gasfornuis, Nespresso, waterkoker en combi-magnetron. Aparte eetkamer voor 6 personen. In de villa hebben wij een open haard en infrarood panelen geïnstalleerd voor optimaal verwarmingscomfort tijdens uw verblijf. Tevens zijn elektrische dekens aanwezig voor de koudere nachten.
 
 ### Buiten
 
-Privézwembad (8 × 4 m) met buitendouche. Twee grote terrassen met ligbedden, tuinmeubilair en parasols. Gasbarbecue en elektrische tafelgrill. Omheinde tuin met berging.
+Privézwembad (8 × 4 m) met solar douche (warm/koud). Twee grote terrassen met ligbedden, tuinmeubilair en parasols. Gasbarbecue en elektrische tafelgrill. Omheinde tuin met berging. Voor bij het zwembad en strand zijn voldoende spullen aanwezig voor vermaak voor de kinderen.
 
 ### Slaapkamers
 
@@ -32,7 +32,7 @@ Privézwembad (8 × 4 m) met buitendouche. Twee grote terrassen met ligbedden, t
 
 ### Entertainment
 
-Gratis wifi. Samsung 43" Smart TV in de woonkamer (Netflix, 200+ kanalen). Samsung 32" TV met DVD en PlayStation 2 in de master suite. Grote collectie DVD's, CD's, PlayStation-games, leesmateriaal en bordspellen.
+Gratis wifi en Google Chromecast. Sony DVD/CD met bluetooth, PlayStation 2 in de master suite en een grote collectie DVD's, CD's, PlayStation-games, leesmateriaal en bordspellen.
 
 {{< /section >}}
 

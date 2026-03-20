@@ -8,7 +8,7 @@ description: "Luxury holiday villa with private pool in Benitachell, Costa Blanc
 A beautiful villa with private swimming pool at the luxurious **Cumbre del Sol** resort in Benitachell, Costa Blanca. With views of the Mediterranean Sea and the mountains, this is the perfect place to unwind.
 
 - **2 bedrooms** · 2 bathrooms · sleeps 4 · 100 m² (1,076 sq ft)
-- **Private pool** measuring 8 × 4 metres with outdoor shower
+- **Private pool** measuring 8 × 4 metres with solar shower (hot/cold)
 - **Private garden** of 800 m² with parking space
 - **Air conditioning** in all bedrooms (cool/warm)
 
@@ -18,11 +18,11 @@ A beautiful villa with private swimming pool at the luxurious **Cumbre del Sol**
 
 ### Inside
 
-Spacious living room with patio doors to your private terrace. Well-equipped kitchen with Samsung fridge-freezer, gas hob, Nespresso, kettle and combi microwave. Separate dining room for 6. Samsung 43" Smart TV with Netflix and over 200 channels, Sony DVD/CD system with Bluetooth, Google Chromecast.
+Spacious living room with patio doors to your private terrace. Well-equipped kitchen with Samsung fridge-freezer, gas hob, Nespresso, kettle and combi microwave. Separate dining room for 6. In the villa, we have installed a fireplace and infrared panels for optimal heating comfort during your stay. Electric blankets are also available for colder nights.
 
 ### Outside
 
-Private swimming pool (8 × 4 m) with outdoor shower. Two large terraces with sun loungers, garden furniture and parasols. Gas barbecue and electric table grill. Fenced garden with storage shed.
+Private swimming pool (8 × 4 m) with solar shower (hot/cold). Two large terraces with sun loungers, garden furniture and parasols. Gas barbecue and electric table grill. Fenced garden with storage shed. For the pool and beach, plenty of items are available to keep children entertained.
 
 ### Bedrooms
 
@@ -32,7 +32,7 @@ Private swimming pool (8 × 4 m) with outdoor shower. Two large terraces with su
 
 ### Entertainment
 
-Free Wi-Fi. Samsung 43" Smart TV in the living room (Netflix, 200+ channels). Samsung 32" TV with DVD and PlayStation 2 in the master suite. Large collection of DVDs, CDs, PlayStation games, reading material and board games.
+Free Wi-Fi and Google Chromecast. Sony DVD/CD system with Bluetooth, PlayStation 2 in the master suite, and a large collection of DVDs, CDs, PlayStation games, reading material and board games.
 
 {{< /section >}}
 

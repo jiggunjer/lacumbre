@@ -8,7 +8,7 @@ description: "Villa de vacances de luxe avec piscine privée à Benitachell, Cos
 Une magnifique villa avec piscine privée dans le luxueux complexe **Cumbre del Sol** à Benitachell, Costa Blanca. Avec vue sur la Méditerranée et les montagnes, c'est l'endroit idéal pour se détendre.
 
 - **2 chambres** · 2 salles de bain · 4 personnes · 100 m²
-- **Piscine privée** de 8 × 4 mètres avec douche extérieure
+- **Piscine privée** de 8 × 4 mètres avec douche solaire (chaud/froid)
 - **Jardin privé** de 800 m² avec place de parking
 - **Climatisation** dans toutes les chambres (froid/chaud)
 
@@ -18,11 +18,11 @@ Une magnifique villa avec piscine privée dans le luxueux complexe **Cumbre del 
 
 ### Intérieur
 
-Spacieux salon avec portes-fenêtres donnant sur votre terrasse privée. Cuisine bien équipée avec réfrigérateur Samsung, plaque à gaz, Nespresso, bouilloire et micro-ondes combiné. Salle à manger séparée pour 6 personnes. Samsung 43" Smart TV avec Netflix et plus de 200 chaînes, système Sony DVD/CD avec Bluetooth, Google Chromecast.
+Spacieux salon avec portes-fenêtres donnant sur votre terrasse privée. Cuisine bien équipée avec réfrigérateur Samsung, plaque à gaz, Nespresso, bouilloire et micro-ondes combiné. Salle à manger séparée pour 6 personnes. Dans la villa, nous avons installé une cheminée et des panneaux infrarouges pour un confort de chauffage optimal pendant votre séjour. Des couvertures chauffantes sont également disponibles pour les nuits plus froides.
 
 ### Extérieur
 
-Piscine privée (8 × 4 m) avec douche extérieure. Deux grandes terrasses avec transats, mobilier de jardin et parasols. Barbecue à gaz et grill de table électrique. Jardin clôturé avec remise.
+Piscine privée (8 × 4 m) avec douche solaire (chaud/froid). Deux grandes terrasses avec transats, mobilier de jardin et parasols. Barbecue à gaz et grill de table électrique. Jardin clôturé avec remise. Pour la piscine et la plage, suffisamment d'articles sont disponibles pour divertir les enfants.
 
 ### Chambres
 
@@ -32,7 +32,7 @@ Piscine privée (8 × 4 m) avec douche extérieure. Deux grandes terrasses avec 
 
 ### Divertissement
 
-Wi-Fi gratuit. Samsung 43" Smart TV dans le salon (Netflix, 200+ chaînes). Samsung 32" TV avec DVD et PlayStation 2 dans la suite principale. Grande collection de DVD, CD, jeux PlayStation, livres et jeux de société.
+Wi-Fi gratuit et Google Chromecast. Système Sony DVD/CD avec Bluetooth, PlayStation 2 dans la suite principale, ainsi qu'une grande collection de DVD, CD, jeux PlayStation, livres et jeux de société.
 
 {{< /section >}}
 

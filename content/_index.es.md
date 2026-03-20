@@ -8,7 +8,7 @@ description: "Villa de vacaciones de lujo con piscina privada en Benitachell, Co
 Una hermosa villa con piscina privada en la lujosa urbanización **Cumbre del Sol** en Benitachell, Costa Blanca. Con vistas al mar Mediterráneo y a las montañas, es el lugar perfecto para relajarse.
 
 - **2 dormitorios** · 2 baños · 4 personas · 100 m²
-- **Piscina privada** de 8 × 4 metros con ducha exterior
+- **Piscina privada** de 8 × 4 metros con ducha solar (agua caliente/fría)
 - **Jardín privado** de 800 m² con plaza de aparcamiento
 - **Aire acondicionado** en todos los dormitorios (frío/calor)
 
@@ -18,11 +18,11 @@ Una hermosa villa con piscina privada en la lujosa urbanización **Cumbre del So
 
 ### Interior
 
-Amplio salón con puertas al patio que dan a su terraza privada. Cocina bien equipada con nevera Samsung, placa de gas, Nespresso, hervidor y microondas combinado. Comedor independiente para 6 personas. Samsung 43" Smart TV con Netflix y más de 200 canales, sistema Sony DVD/CD con Bluetooth, Google Chromecast.
+Amplio salón con puertas al patio que dan a su terraza privada. Cocina bien equipada con nevera Samsung, placa de gas, Nespresso, hervidor y microondas combinado. Comedor independiente para 6 personas. En la villa hemos instalado una chimenea y paneles infrarrojos para un confort térmico óptimo durante su estancia. También hay mantas eléctricas para las noches más frías.
 
 ### Exterior
 
-Piscina privada (8 × 4 m) con ducha exterior. Dos grandes terrazas con tumbonas, mobiliario de jardín y sombrillas. Barbacoa de gas y parrilla eléctrica de mesa. Jardín vallado con trastero.
+Piscina privada (8 × 4 m) con ducha solar (agua caliente/fría). Dos grandes terrazas con tumbonas, mobiliario de jardín y sombrillas. Barbacoa de gas y parrilla eléctrica de mesa. Jardín vallado con trastero. Para la piscina y la playa, hay suficientes artículos disponibles para entretener a los niños.
 
 ### Dormitorios
 
@@ -32,7 +32,7 @@ Piscina privada (8 × 4 m) con ducha exterior. Dos grandes terrazas con tumbonas
 
 ### Entretenimiento
 
-Wi-Fi gratuito. Samsung 43" Smart TV en el salón (Netflix, 200+ canales). Samsung 32" TV con DVD y PlayStation 2 en la suite principal. Gran colección de DVDs, CDs, juegos de PlayStation, libros y juegos de mesa.
+Wi-Fi gratuito y Google Chromecast. Sistema Sony DVD/CD con Bluetooth, PlayStation 2 en la suite principal y una gran colección de DVDs, CDs, juegos de PlayStation, libros y juegos de mesa.
 
 {{< /section >}}
 
