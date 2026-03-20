@@ -92,14 +92,66 @@
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
     <script>
       (function() {
+        var authUiConfig = {
+          idpLabel: "Google",
+          iconText: "G"
+        };
+
+        function applyCustomAuthButton(root) {
+          var scope = root && root.querySelectorAll ? root : document;
+          var candidates = scope.querySelectorAll("button, a[role='button'], a");
+          var didUpdate = false;
+
+          for (var i = 0; i < candidates.length; i++) {
+            var button = candidates[i];
+            if (button.dataset.lacumbreAuthStyled === "1") {
+              continue;
+            }
+
+            var text = (button.textContent || "").trim();
+            if (!/sign in/i.test(text) || !/github/i.test(text)) {
+              continue;
+            }
+
+            button.dataset.lacumbreAuthStyled = "1";
+            button.innerHTML =
+              '<span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:1.25rem;height:1.25rem;border-radius:50%;background:#fff;color:#ea4335;font-weight:700;font-family:Arial,sans-serif;margin-right:.5rem;">' +
+              authUiConfig.iconText +
+              "</span>" +
+              '<span>Sign in with ' +
+              authUiConfig.idpLabel +
+              "</span>";
+            didUpdate = true;
+          }
+
+          return didUpdate;
+        }
+
+        var observer = new MutationObserver(function(mutations) {
+          for (var i = 0; i < mutations.length; i++) {
+            var mutation = mutations[i];
+            for (var j = 0; j < mutation.addedNodes.length; j++) {
+              var node = mutation.addedNodes[j];
+              if (!node || node.nodeType !== Node.ELEMENT_NODE) {
+                continue;
+              }
+              applyCustomAuthButton(node);
+            }
+          }
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+
         if ({{ $isDebug }}) {
           CMS.init({
             config: window.LACUMBRE_CMS_LOCAL_CONFIG,
           });
+          applyCustomAuthButton(document);
           return;
         }
 
         CMS.init();
+        applyCustomAuthButton(document);
       })();
     </script>
   </body>
