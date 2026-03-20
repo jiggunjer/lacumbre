@@ -1,5 +1,5 @@
-# Local/default value. CI overrides this in `.github/workflows/deploy.yml`.
-baseURL       = 'https://example.org/'
+# Canonical production domain.
+baseURL       = 'https://lacumbre-villa.casa/'
 title         = 'La Cumbre del Sol'
 theme         = 'lacumbre'
 
