@@ -60,6 +60,21 @@
     }
     .site-nav .brand { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--clr-accent); }
     .nav-links { display: flex; gap: 1.25rem; align-items: center; font-size: .9rem; }
+    .nav-group { display: flex; gap: 1.25rem; align-items: center; }
+    .nav-group-page-separated {
+      position: relative;
+      padding-left: .9rem;
+    }
+    .nav-group-page-separated::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 1rem;
+      background: var(--clr-border);
+    }
     .nav-links a { color: var(--clr-muted); font-weight: 500; }
     .nav-links a:hover { color: var(--clr-accent); text-decoration: none; }
 
@@ -127,7 +142,15 @@
         position: absolute; top: var(--nav-h); left: 0; right: 0;
         background: var(--clr-bg); border-bottom: 1px solid var(--clr-border);
         padding: 1rem 1.25rem; gap: .75rem;
+        align-items: stretch;
       }
+      .nav-group { flex-direction: column; gap: .75rem; align-items: flex-start; }
+      .nav-group-page-separated {
+        padding-left: 0;
+        padding-top: .65rem;
+        border-top: 1px solid var(--clr-border);
+      }
+      .nav-group-page-separated::before { display: none; }
       .hamburger { display: block; }
       .hero { min-height: 55vh; }
       .hero h1 { font-size: 1.8rem; }
@@ -147,20 +170,24 @@
     <div class="nav-inner">
       <a href="{{ .Site.Home.RelPermalink }}" class="brand">La Cumbre</a>
       <div class="nav-links" id="navLinks">
-        {{ if .IsHome }}
-        <a href="#villa">{{ .Site.Params.navVilla }}</a>
-        <a href="#features">{{ .Site.Params.navFeatures }}</a>
-        <a href="#area">{{ .Site.Params.navArea }}</a>
-        <a href="#pricing">{{ .Site.Params.navPricing }}</a>
-        <a href="#contact">{{ .Site.Params.navContact }}</a>
-        {{ end }}
-        {{ if not .IsHome }}
-        <a href="{{ .Site.Home.RelPermalink }}#villa">{{ .Site.Params.navVilla }}</a>
-        {{ end }}
-        {{ $gallery := .Site.GetPage "/gallery" }}
-        {{ with $gallery }}<a href="{{ .RelPermalink }}">{{ $.Site.Params.navGallery }}</a>{{ end }}
-        {{ $avail := .Site.GetPage "/availability" }}
-        {{ with $avail }}<a href="{{ .RelPermalink }}">{{ $.Site.Params.navAvailability }}</a>{{ end }}
+        <div class="nav-group nav-group-local">
+          {{ if .IsHome }}
+          <a href="#villa">{{ .Site.Params.navVilla }}</a>
+          <a href="#features">{{ .Site.Params.navFeatures }}</a>
+          <a href="#area">{{ .Site.Params.navArea }}</a>
+          <a href="#pricing">{{ .Site.Params.navPricing }}</a>
+          <a href="#contact">{{ .Site.Params.navContact }}</a>
+          {{ end }}
+        </div>
+        <div class="nav-group nav-group-page{{ if .IsHome }} nav-group-page-separated{{ end }}">
+          {{ if not .IsHome }}
+          <a href="{{ .Site.Home.RelPermalink }}#villa">{{ .Site.Params.navVilla }}</a>
+          {{ end }}
+          {{ $gallery := .Site.GetPage "/gallery" }}
+          {{ with $gallery }}<a href="{{ .RelPermalink }}">{{ $.Site.Params.navGallery }}</a>{{ end }}
+          {{ $avail := .Site.GetPage "/availability" }}
+          {{ with $avail }}<a href="{{ .RelPermalink }}">{{ $.Site.Params.navAvailability }}</a>{{ end }}
+        </div>
         <div class="lang-toggle">
           {{ range .Translations }}
             <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
