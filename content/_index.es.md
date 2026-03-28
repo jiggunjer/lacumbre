@@ -32,7 +32,7 @@ Piscina privada (8 × 4 m) con ducha solar (agua caliente/fría). Dos grandes te
 
 ### Entretenimiento
 
-Wi-Fi gratuito y Google Chromecast. Sistema Sony DVD/CD con Bluetooth, PlayStation 2 en la suite principal y una gran colección de DVDs, CDs, juegos de PlayStation, libros y juegos de mesa.
+Wi-Fi gratuito. Dos smart TV Samsung—una en el salón y otra en el dormitorio—ambas con Google Chromecast. Sistema Sony DVD/CD con Bluetooth, PlayStation 2 en la suite principal y una gran colección de DVDs, CDs, juegos de PlayStation, libros y juegos de mesa.
 
 {{< /section >}}
 

@@ -32,7 +32,7 @@ description: "位于 Benitachell（Costa Blanca）的豪华私人泳池度假别
 
 ### 娱乐
 
-免费 Wi-Fi 和 Google Chromecast。主卧配有 PlayStation 2，并提供 Sony DVD/CD（蓝牙）以及丰富的 DVD、CD、PlayStation 游戏、读物和桌游。
+免费 Wi-Fi。客厅与卧室各有一台 Samsung 智能电视，均配备 Google Chromecast。主卧配有 PlayStation 2，并提供 Sony DVD/CD（蓝牙）以及丰富的 DVD、CD、PlayStation 游戏、读物和桌游。
 
 {{< /section >}}
 

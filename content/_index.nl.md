@@ -32,7 +32,7 @@ Privézwembad (8 × 4 m) met solar douche (warm/koud). Twee grote terrassen met 
 
 ### Entertainment
 
-Gratis wifi en Google Chromecast. Sony DVD/CD met bluetooth, PlayStation 2 in de master suite en een grote collectie DVD's, CD's, PlayStation-games, leesmateriaal en bordspellen.
+Gratis wifi. Twee Samsung smart-tv's—één in de woonkamer en één in de slaapkamer—beide met Google Chromecast. Sony DVD/CD met bluetooth, PlayStation 2 in de master suite en een grote collectie DVD's, CD's, PlayStation-games, leesmateriaal en bordspellen.
 
 {{< /section >}}
 

@@ -32,7 +32,7 @@ Private swimming pool (8 × 4 m) with solar shower (hot/cold). Two large terrace
 
 ### Entertainment
 
-Free Wi-Fi and Google Chromecast. Sony DVD/CD system with Bluetooth, PlayStation 2 in the master suite, and a large collection of DVDs, CDs, PlayStation games, reading material and board games.
+Free Wi-Fi. Two Samsung smart TVs—one in the living room and one in the bedroom—both with Google Chromecast. Sony DVD/CD system with Bluetooth, PlayStation 2 in the master suite, and a large collection of DVDs, CDs, PlayStation games, reading material and board games.
 
 {{< /section >}}
 

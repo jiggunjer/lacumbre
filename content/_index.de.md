@@ -32,7 +32,7 @@ Privater Pool (8 × 4 m) mit Solardusche (warm/kalt). Zwei große Terrassen mit 
 
 ### Unterhaltung
 
-Kostenloses WLAN und Google Chromecast. Sony DVD/CD-Anlage mit Bluetooth, PlayStation 2 in der Master-Suite sowie eine große Auswahl an DVDs, CDs, PlayStation-Spielen, Lesematerial und Brettspielen.
+Kostenloses WLAN. Zwei Samsung Smart-TVs—einer im Wohnzimmer und einer im Schlafzimmer—beide mit Google Chromecast. Sony DVD/CD-Anlage mit Bluetooth, PlayStation 2 in der Master-Suite sowie eine große Auswahl an DVDs, CDs, PlayStation-Spielen, Lesematerial und Brettspielen.
 
 {{< /section >}}
 
