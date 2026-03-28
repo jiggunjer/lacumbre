@@ -55,6 +55,55 @@
 .table-responsive { overflow-x: auto; }
 .table-responsive table { min-width: 400px; }
 .table-responsive th, .table-responsive td { white-space: nowrap; }
+.table-responsive tr.price-year-gap td {
+  border: none;
+  padding: 0.65rem 0;
+  height: auto;
+  vertical-align: middle;
+  background: transparent;
+  white-space: normal;
+}
+.table-responsive .price-year-gap-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  min-height: 1.2rem;
+}
+.table-responsive .price-year-gap-motif {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: linear-gradient(145deg, var(--clr-warm-light), rgba(201, 149, 107, 0.55));
+  box-shadow: 0 0 0 1px rgba(201, 149, 107, 0.28);
+  opacity: 0.85;
+}
+.table-responsive .price-year-gap-line {
+  flex: 1 1 0;
+  min-width: 0.75rem;
+  height: 1px;
+  align-self: center;
+}
+.table-responsive .price-year-gap-line--in {
+  background: linear-gradient(to right, transparent 0%, var(--clr-border) 55%, var(--clr-border) 100%);
+  opacity: 0.72;
+}
+.table-responsive .price-year-gap-line--out {
+  background: linear-gradient(to left, transparent 0%, var(--clr-border) 55%, var(--clr-border) 100%);
+  opacity: 0.72;
+}
+.table-responsive .price-year-gap-year {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-text);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  padding: 0 0.25rem;
+  opacity: 0.42;
+}
 
 /* Calendar navigation */
 .cal-nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.25rem; }
@@ -241,7 +290,26 @@
       });
       html += '</tr></thead><tbody>';
 
-      rows.forEach(function(r) {
+      var colCount = displayHeaders.length;
+      var referenceYear = new Date().getFullYear();
+      var firstStartYear = rows.length ? parseDate(rows[0][0]).getFullYear() : null;
+      var useYearGaps = firstStartYear === referenceYear;
+      var prevStartYear = null;
+
+      rows.forEach(function(r, rowIdx) {
+        var startYear = r.length ? parseDate(r[0]).getFullYear() : null;
+        if (useYearGaps && rowIdx > 0 && prevStartYear !== null && startYear !== null && startYear !== prevStartYear) {
+          html += '<tr class="price-year-gap"><td colspan="' + colCount + '">' +
+            '<div class="price-year-gap-inner">' +
+            '<span class="price-year-gap-motif" aria-hidden="true"></span>' +
+            '<span class="price-year-gap-line price-year-gap-line--in" aria-hidden="true"></span>' +
+            '<span class="price-year-gap-year">' + escapeHtml(String(startYear)) + '</span>' +
+            '<span class="price-year-gap-line price-year-gap-line--out" aria-hidden="true"></span>' +
+            '<span class="price-year-gap-motif" aria-hidden="true"></span>' +
+            '</div></td></tr>';
+        }
+        if (startYear !== null) prevStartYear = startYear;
+
         html += '<tr>';
         if (r.length > 0) html += '<td>' + escapeHtml(dateFmt.format(parseDate(r[0]))) + '</td>';
         if (r.length > 1) html += '<td>' + escapeHtml(dateFmt.format(parseDate(r[1]))) + '</td>';
