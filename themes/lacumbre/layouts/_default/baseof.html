@@ -228,7 +228,7 @@
           <a href="{{ .RelPermalink }}" class="active">{{ .Language.LanguageName }}</a>
         </div>
       </div>
-      <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <button type="button" class="hamburger" id="navMenuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -243,12 +243,34 @@
   <script>
     (function() {
       var navLinks = document.getElementById('navLinks');
+      var menuBtn = document.getElementById('navMenuBtn');
       if (!navLinks) return;
 
+      function setMenuOpen(open) {
+        navLinks.classList.toggle('open', open);
+        if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      if (menuBtn) {
+        menuBtn.addEventListener('click', function(event) {
+          event.stopPropagation();
+          setMenuOpen(!navLinks.classList.contains('open'));
+        });
+      }
+
       navLinks.addEventListener('click', function(event) {
-        var clickedLink = event.target.closest('a[href^="#"]');
-        if (!clickedLink) return;
-        navLinks.classList.remove('open');
+        if (event.target.closest('a')) setMenuOpen(false);
+      });
+
+      document.addEventListener('click', function(event) {
+        if (!navLinks.classList.contains('open')) return;
+        if (navLinks.contains(event.target)) return;
+        if (menuBtn && menuBtn.contains(event.target)) return;
+        setMenuOpen(false);
+      });
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') setMenuOpen(false);
       });
     })();
   </script>
