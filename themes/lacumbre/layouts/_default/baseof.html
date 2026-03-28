@@ -110,10 +110,39 @@
       display: inline-block; padding: .7rem 1.5rem; border-radius: 8px;
       font-weight: 600; font-size: .95rem; transition: all .2s; text-decoration: none;
     }
-    .btn-primary { background: var(--clr-accent); color: var(--clr-white); }
-    .btn-primary:hover { background: var(--clr-accent-hover); text-decoration: none; }
-    .btn-outline { background: transparent; color: var(--clr-white); border: 2px solid rgba(255,255,255,.7); }
-    .btn-outline:hover { background: rgba(255,255,255,.15); text-decoration: none; }
+    .btn-primary {
+      background: var(--clr-accent);
+      color: var(--clr-white);
+      -webkit-tap-highlight-color: rgba(255,255,255,.12);
+    }
+    /* Must beat global `a:hover` (otherwise text becomes accent-hover on accent-hover bg) */
+    a.btn-primary:hover {
+      background: var(--clr-accent-hover);
+      color: var(--clr-white);
+      text-decoration: none;
+    }
+    a.btn-primary:active {
+      background: #163524;
+      color: var(--clr-white);
+      text-decoration: none;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--clr-white);
+      border: 2px solid rgba(255,255,255,.7);
+      -webkit-tap-highlight-color: rgba(255,255,255,.15);
+    }
+    a.btn-outline:hover {
+      background: rgba(255,255,255,.15);
+      color: var(--clr-white);
+      text-decoration: none;
+    }
+    a.btn-outline:active {
+      background: rgba(255,255,255,.22);
+      color: var(--clr-white);
+      border-color: rgba(255,255,255,.85);
+      text-decoration: none;
+    }
 
     /* --- MAIN CONTENT --- */
     main { max-width: var(--max-w); margin: 0 auto; padding: 0 1.25rem; }
