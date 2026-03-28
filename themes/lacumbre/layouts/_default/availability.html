@@ -232,6 +232,7 @@
   var PRICES_URL = {{ .Site.Params.pricesCSV }};
   var AVAIL_URL = {{ .Site.Params.availabilityCSV }};
   var MONTHS_PER_PAGE = 6;
+  var CAL_SWIPE_MIN_DX = 28;
   var MAX_ROWS = 24;
   var MAX_COLS = 5;
 
@@ -513,7 +514,7 @@
     grid.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
     grid.addEventListener('touchend', function(e) {
       var dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) < 50) return;
+      if (Math.abs(dx) < CAL_SWIPE_MIN_DX) return;
       if (dx < 0 && (calPage + 1) * MONTHS_PER_PAGE < calMonths.length) { calPage++; renderCalendar(); }
       if (dx > 0 && calPage > 0) { calPage--; renderCalendar(); }
     }, { passive: true });
