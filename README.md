@@ -19,7 +19,7 @@ The CMS intentionally does **not** expose translatable page text/content files, 
 - `content/admin/_index.md` - Hugo route for `/admin/`
 - `layouts/_default/admin.html` - Hugo-rendered Sveltia CMS entry page
 - `static/admin/config.yml` - Sveltia CMS config
-- `oauth-proxy/` - OAuth proxy service (Cloudflare Worker template)
+- `api/` - Cloudflare Worker API (CMS **authentication**: Google + allowlist; **authorization**: GitHub PAT to Sveltia today, possibly more services later)
 
 ### OAuth architecture
 
@@ -85,6 +85,13 @@ From `oauth-proxy/`:
 Then update `static/admin/config.yml`:
 
 - `backend.base_url: https://<your-worker-domain>`
+### OAuth and Worker setup
+
+The production Worker setup (Google OAuth, GitHub PAT, deploy URL, env vars) is documented in:
+
+- `api/README.md`
+
+Use that recipe to configure `backend.base_url` in `static/admin/config.yml`.
 
 ### Local debug mode
 

@@ -1,0 +1,18 @@
+# Cloudflare Worker: CMS auth API (Google OAuth → GitHub token for Sveltia).
+# Public URL: https://stg.api.<workers-subdomain>.workers.dev
+#
+# For https://stg.api.lacumbre.workers.dev — set your account Workers subdomain to
+# "lacumbre" (Cloudflare Dashboard → Workers & Pages → overview / account details).
+# Confirm with: npx wrangler whoami
+
+name = "stg-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-15"
+
+[vars]
+GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+ALLOWED_EMAILS = "admin@example.com"
+
+# Secrets (never put these in this file; set via CLI):
+#   npx wrangler secret put GOOGLE_CLIENT_SECRET
+#   npx wrangler secret put GITHUB_PAT

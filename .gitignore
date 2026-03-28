@@ -8,8 +8,10 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.har
-oauth-proxy/.dev.vars
-oauth-proxy/.dev.vars.*
-oauth-proxy/.wrangler/
+api/.dev.vars
+api/.dev.vars.*
+api/.wrangler/
 static/cms-media-local/*
 !static/cms-media-local/.gitkeep
+*.secret
+wrangler.toml

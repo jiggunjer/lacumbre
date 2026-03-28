@@ -2,7 +2,7 @@ backend:
   name: github
   repo: jiggunjer/lacumbre
   branch: main
-  base_url: https://YOUR_AUTH_WORKER_URL
+  base_url: https://api.lacumbre.workers.dev
 
 # Internal defaults are still needed by the CMS UI,
 # even when using external media providers.
