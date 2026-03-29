@@ -411,8 +411,22 @@
 
   function dateKey(y, m, d) { return y + '-' + String(m + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0'); }
 
+  function getMadridTodayKey() {
+    var parts = {};
+    new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Madrid',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).formatToParts(new Date()).forEach(function(p) {
+      if (p.type !== 'literal') parts[p.type] = p.value;
+    });
+    return parts.year + '-' + parts.month + '-' + parts.day;
+  }
+
   function buildAvailMap(rows) {
     availMap = {};
+    var todayKeyMadrid = getMadridTodayKey();
     rows.forEach(function(r) {
       var start = parseDate(r[0]);
       var end = parseDate(r[1]);
@@ -420,6 +434,10 @@
       var cur = new Date(start);
       while (cur <= end) {
         var key = dateKey(cur.getFullYear(), cur.getMonth(), cur.getDate());
+        if (key < todayKeyMadrid) {
+          cur.setDate(cur.getDate() + 1);
+          continue;
+        }
         var prev = availMap[key];
         if (!prev) {
           availMap[key] = { status: status, conflict: false };
@@ -436,6 +454,7 @@
     var end = Math.min(start + MONTHS_PER_PAGE, calMonths.length);
     var grid = document.getElementById('calendar-grid');
     grid.innerHTML = '';
+    var madridTodayKey = getMadridTodayKey();
 
     for (var mi = start; mi < end; mi++) {
       var first = calMonths[mi];
@@ -474,7 +493,9 @@
         cell.className = 'cal-day';
         cell.textContent = d;
         var key = dateKey(y, m, d);
-        if (key in availMap) {
+        if (key < madridTodayKey) {
+          cell.classList.add('nodata');
+        } else if (key in availMap) {
           var meta = availMap[key];
           if (meta.conflict) {
             cell.classList.add('nodata', 'conflict');
